@@ -2,9 +2,7 @@
 
 # Documentación
 
-# Base de datos
-
-## Creación del cluster en MongoDB
+## 1. Creación de la base de datos con MongoDB Atlas
 
 Primeramente nos dirigiremos a [https://www.mongodb.com/es](https://www.mongodb.com/es) y nos crearemos una cuenta, acto seguido elegiremos la opción gratuita.
 
@@ -22,7 +20,7 @@ Aquí iría vuestra dirección IP pública o la dirección IP del servicio que q
 
 ![Untitled](mdassets/Untitled%202.png)
 
-## Configuración Inicial
+## 2.Configuración Inicial del Proyecto
 
 Primeramente necesitaremos instalar [NodeJS,](https://nodejs.org/es/) una vez lo tengamos instalado, desde la terminal de tu sistema operativo y situándote en el directorio raíz de tu proyecto, ejecutaremos el siguiente comando para inizializar el proyecto con NodeJS:
 
