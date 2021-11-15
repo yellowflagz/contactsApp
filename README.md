@@ -6,15 +6,15 @@ Primeramente nos dirigiremos a [https://www.mongodb.com/es](https://www.mongodb.
 
 ![Untitled](mdassets/Untitled.png)
 
-En el apartado de configuración, sencillamente escogemos el provider que más nos guste y la región más cercana a nosotros.
+En el apartado de configuración, sencillamente **escogemos el provider que más nos guste y la región más cercana a nosotros.**
 
-Una vez le damos a crear, tardará unos minutos en montarlo todo, mientras tanto podemos ir al apartado de Security > Database Access y crear un usuario para nuestra base de datos.
+Una vez le damos a crear, tardará unos minutos en montarlo todo, mientras tanto podemos ir al apartado de **Security > Database Access y crear un usuario para nuestra base de datos.**
 
 ![Untitled](mdassets/Untitled%201.png)
 
-También necesitamos indicarle en el apartado de Network Access desde qué direcciones IP vamos a conectarnos para que la base de datos nos permita acceder a ella.
+También necesitamos indicarle en el apartado de Network Access **desde qué direcciones IP vamos a conectarnos para que la base de datos nos permita acceder** a ella.
 
-Aquí iría vuestra dirección IP pública o la dirección IP del servicio que quiere acceder a la base de datos. Como vamos a estar desarrollando la aplicación, lo más cómodo es ponerla en "Allow access from anywhere" y posteriormente modificarlo.
+Aquí iría vuestra dirección IP pública o la dirección IP del servicio que quiere acceder a la base de datos. Como vamos a estar desarrollando la aplicación, **lo más cómodo es ponerla en "Allow access from anywhere" y posteriormente modificarlo.**
 
 ![Untitled](mdassets/Untitled%202.png)
 
@@ -106,7 +106,7 @@ Ahora que entendemos qué es y para qué sirve el package.json, es momento de **
 }
 ```
 
-Ahora es el momento de iniciar el servidor
+Ahora es el momento de **iniciar el servidor.**
 
 ```jsx
 npm run start
