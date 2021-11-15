@@ -1,7 +1,5 @@
 # contactsApp
 
-# Documentación
-
 ## 1. Creación de la base de datos con MongoDB Atlas
 
 Primeramente nos dirigiremos a [https://www.mongodb.com/es](https://www.mongodb.com/es) y nos crearemos una cuenta, acto seguido elegiremos la opción gratuita.
