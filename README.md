@@ -72,12 +72,11 @@ Si echamos un ojo a nuestro package.json veremos que aparecen **express y nodemo
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    // Dependencias para el correcto funcionamiento de la aplicación
+  "dependencies": { 	    // Dependencias para el correcto funcionamiento de la aplicación
     "express": "^4.17.1"
   },
-  "devDependencies": {
-    // Dependencias para el desarrollo de la aplicación
+  "devDependencies": {     // Dependencias para el desarrollo de la aplicación
+
     "nodemon": "^2.0.15"
   }
 }
