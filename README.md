@@ -60,7 +60,7 @@ Es un buen momento para hablar del archivo **package.json,** este archivo **es e
 
 Si echamos un ojo a nuestro package.json veremos que aparecen **express y nodemon como dependencias.**
 
-```json
+```js
 {
   "name": "webAppProyecto",
   "version": "1.0.0",
@@ -84,7 +84,7 @@ Si echamos un ojo a nuestro package.json veremos que aparecen **express y nodemo
 
 Ahora que entendemos qué es y para qué sirve el package.json, es momento de **cambiar el script de inicialización** que trae por defecto.
 
-```json
+```js
 {
   "name": "webAppProyecto",
   "version": "1.0.0",
