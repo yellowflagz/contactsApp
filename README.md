@@ -18,7 +18,7 @@ Aquí iría vuestra dirección IP pública o la dirección IP del servicio que q
 
 ![Untitled](mdassets/Untitled%202.png)
 
-## 2.Configuración Inicial del Proyecto
+## 2. Configuración Inicial del Proyecto
 
 Primeramente necesitaremos instalar [NodeJS,](https://nodejs.org/es/) una vez lo tengamos instalado, desde la terminal de tu sistema operativo y situándote en el directorio raíz de tu proyecto, ejecutaremos el siguiente comando para inizializar el proyecto con NodeJS:
 
@@ -112,11 +112,11 @@ Ahora es el momento de **iniciar el servidor.**
 npm run start
 ```
 
-Si no hubiésemos instalado nodemon, **tendríamos que apagar y volver a encender el servidor cada vez que cambiásemos algo en el proyecto**, de esta manera, podemos desarrollar de una manera mucho más cómoda y eficiente.
-
-Si todo va bien y navegamos a [localhost:9000](http://localhost:9000), **deberíamos de recibir el error "Cannot GET /"**
+Navegamos a [localhost:9000](http://localhost:9000), **y deberíamos de recibir el error "Cannot GET /"**
 
 Esto **ocurre por que no tenemos rutas definidas todavía**, entonces el servidor nos devuelve un error.
+
+> Si no hubiésemos instalado nodemon, **tendríamos que apagar y volver a encender el servidor cada vez que cambiásemos algo en el proyecto**, de esta manera, podemos desarrollar de una manera mucho más cómoda y eficiente.
 
 Nos dirigiremos a nuestro archivo **index.js,** y definiremos una ruta raíz mediante el **método get**.
 
@@ -179,7 +179,7 @@ Sin embargo, pegar nuestra key en texto plano directamente en el código, no es 
 
 **Vamos a crear una variable de entorno para poder acceder a ella tantas veces como queramos** (como la que usamos para definir el puerto), y que nuestro código esté mas limpio y organizado.
 
-No es lo mismo ver una string larguísima, que ver una variable que se llame MONGODB_URI.
+> No es lo mismo ver una string larguísima, que dios sabe qué significa, que ver una variable que se llame MONGODB_URI
 
 Para crear variables de entorno personalizadas, **vamos a instalar un nuevo paquete llamado dotenv.**
 
@@ -250,4 +250,175 @@ Reiniciamos el servidor, y **debería de salirnos en consola "Connected to Mongo
 
 Ahora es momento de definir las rutas de nuestra Web App.
 
-## Rutas
+# 3. Rutas
+
+Antes, definimos una ruta raíz en el archivo index.js, sin embargo, **es preferible definir las rutas en su propio directorio y archivo.**
+
+Para ello **crearemos un nuevo directorio dentro de src llamado routes.**
+
+Dentro de este directorio, **crearemos un archivo llamado user.js,** donde definiremos todas las rutas que queramos, en este caso para la api del servidor.
+
+```jsx
+const express = require("express"); // Requerimos express
+const router = express.Router(); // Asignamos el método router a una constante
+
+// Nuestras rutas
+
+module.exports = router; // Exportamos las rutas para que los demás archivos puedan acceder 
+					// a ellas
+```
+
+El módulo router nos servirá para definir todas estas rutas, **empezaremos por definir una ruta para nuestra [API](https://www.redhat.com/es/topics/api/what-are-application-programming-interfaces).**
+
+```js
+const express = require("express");
+const router = express.router();
+
+router.post("/users", (req, res) => { // Usamos el método post
+  res.send("create user");
+});
+
+module.exports = router;
+```
+
+De momento, esta ruta no devuelve nada, para poder trabajar con ella la tenemos que **"añadir" a nuestro index.js** 
+
+```js
+const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
+const userRoutes = require("./routes/user); // Requerimos nuestro archivo user
+
+const app = express();
+const port = process.env.PORT || 9000;
+
+// middleware
+
+app.use("/api", userRoutes); // Mediante el método use, indicamos que queremos usar
+														// "/api" como prefijo de nuestras rutas
+
+// routes
+
+app.get("/", (req, res) => {
+  res.send("Welcome to my Web App");
+});
+
+// Mongoose
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("Connected to Mongo"))
+  .catch((error) => console.error(error));
+app.listen(port, () => console.log("server listening on port", port));
+```
+
+Una vez requeridas las rutas, usando **"app.use"**, agregamos el  prefijo "/api"a todas nuestras rutas especificadas en user.js. **Todo software que se sitúa entre el sistema operativo y las aplicaciones que corren sobre él se denomina [middleware](https://es.wikipedia.org/wiki/Middleware#:~:text=El middleware es todo software,de datos en aplicaciones distribuidas.).**
+
+Ahora la ruta que definimos en user.js funciona correctamente, solo que solo devuelve una string ("create user"). Lo que tenemos que hacer ahora es indicarle **cómo va a crear ese usuario.**
+
+> Mientras creamos nuestras rutas **será necesario testearlas y ver qué valores nos retornan,** para ello vamos a utilizar una [**extensión de VSCode llamada REST Client**](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) aun que podríamos utilizar multitud de herramientas como [Postman](https://www.postman.com/).
+
+Una vez instalada la extensión, **crearemos un archivo llamado "requests.http" en la raíz del proyecto.** Acto seguido le indicamos **dónde queremos hacer la request:**
+
+```js
+### 
+POST <http://localhost:9000/api/users> HTTP/1.1 // Request a /api/users
+Content-Type: application/json // Le indicamos el tipo de contenido que va a devolver
+						    // En este caso un JSON
+
+{}
+```
+
+Si le damos a send request nos devolverá lo siguiente:
+
+```js
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 11
+ETag: W/"b-RiuDmWuTiJQ+XuV6F6PhreGRiB0"
+Date: Tue, 16 Nov 2021 17:48:11 GMT
+Connection: close
+
+create user // Parámetro de nuestra función users
+```
+
+Si nos fijamos, **nos devuelve la string que pusimos como parámetro en la ruta de users.js,** lo cual significa que funciona correctamente.
+
+## Creación del modelo de datos con Mongoose
+
+Para conseguir que nuestra ruta cree un usuario, o cualquier cosa en general, **le debemos de asignar un modelo de datos**. Este modelo lo tenemos que crear nosotros, en este caso **como usamos MongoDB, lo crearemos con Mongoose.** 
+
+> En cierta manera **los modelos de datos se parecen bastante a cuando defines una tabla en SQL**
+
+Nos dirigimos a la carpeta src y **crearemos una carpeta llamada "models"**. Dentro de esta **crearemos el archivo user.js**, donde se definirán los modelos de datos para nuestro objeto user.
+
+```js
+// models/user.js
+const mongoose = require("mongoose"); // Requerimos mongoose
+
+const userSchema = mongoose.Schema({ // Definimos el schema y lo asignamos a una constante
+  name: {
+    type: String,
+    required: true,
+  },
+  surname: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: Number,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: false,
+  },
+});
+
+module.exports = mongoose.model("User", userSchema); // Importante exportarlo para que luego en routes/user.js podamos requerirlo
+
+// ¿A que ahora el el modelo de datos tiene algo más de sentido?
+```
+
+Y posteriormente **lo importamos en routes/user.js para poder trabajar con él** 
+
+```js
+const express = require("express");
+const router = express.Router();
+const userSchema = require("../models/user"); // <=================
+
+router.post("/users", (req, res) => {
+  res.send("create user");
+});
+
+module.exports = router;
+
+```
+
+Si tuviésemos que trabajar con algún otro tipo de dato, **tendríamos que repetir estos pasos para definir su modelo de datos**, sin embargo, mi proyecto trata sobre una agenda de contactos, así que con definir un modelo (el de los contactos, en este caso se llama user) sería más que suficiente.
+
+> Un modelo de datos, **define el tipo de datos que envía y recibe nuestra api**, también **es necesario para trabajar con el servidor y la base de datos, y que estos se comuniquen entre ellos.**
+
+Ahora que tenemos el modelo de datos, **es momento de ir a nuestra ruta ( *routes/user.js* ) y añadirle el código necesario para que cree un usuario:**
+
+```js
+const express = require("express");
+const router = express.Router();
+const userSchema = require("../models/user");
+
+// Crear un nuevo usuario
+router.post("/users", (req, res) => {
+  const user = userSchema(req.body); // Creamos el schema, que tendrá como input el cuerpo de la request que hace el cliente a la api
+  user
+    .save() // Lo intentamos guardar en la base de datos con .save()
+    .then((data) => // Si se guarda de manera satisfactoria, entonces devuelve los datos en formato json
+      res.json(data).catch((error) => res.json({ message: error })) // Si sale mal, nos devuelve un json con el mensaje de error
+    );
+});
+
+module.exports = router;
+```
+
+Una vez tenemos agregado el código, sólo nos queda realizar la prueba de fuego para comprobar que funciona correctamente, **usar el REST Client y ver qué nos devuelve.**
+
