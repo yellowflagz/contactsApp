@@ -263,8 +263,7 @@ const router = express.Router(); // Asignamos el método router a una constante
 
 // Nuestras rutas
 
-module.exports = router; // Exportamos las rutas para que los demás archivos puedan acceder 
-					// a ellas
+module.exports = router; // Exportamos las rutas para que los demás archivos puedan acceder a ellas
 ```
 
 El módulo router nos servirá para definir todas estas rutas, **empezaremos por definir una ruta para nuestra [API](https://www.redhat.com/es/topics/api/what-are-application-programming-interfaces).**
@@ -293,8 +292,7 @@ const port = process.env.PORT || 9000;
 
 // middleware
 
-app.use("/api", userRoutes); // Mediante el método use, indicamos que queremos usar
-														// "/api" como prefijo de nuestras rutas
+app.use("/api", userRoutes); // Mediante el método use, indicamos que queremos usar "/api" como prefijo de nuestras rutas
 
 // routes
 
@@ -322,8 +320,7 @@ Una vez instalada la extensión, **crearemos un archivo llamado "requests.http" 
 ```js
 ### 
 POST <http://localhost:9000/api/users> HTTP/1.1 // Request a /api/users
-Content-Type: application/json // Le indicamos el tipo de contenido que va a devolver
-						    // En este caso un JSON
+Content-Type: application/json // Le indicamos el tipo de contenido que va a devolver, en este caso un JSON
 
 {}
 ```
