@@ -31,7 +31,7 @@ También necesitamos indicarle en el apartado de Network Access **desde qué dir
 
 Aquí iría vuestra dirección IP pública o la dirección IP del servicio que quiere acceder a la base de datos. Como vamos a estar desarrollando la aplicación, **lo más cómodo es ponerla en "Allow access from anywhere" y posteriormente modificarlo.**
 
-![Mongo1](mdassets\Untitled 2.png)
+![Mongo1](mdassets\Untitled_2.png)
 
 ### Instalación de NodeJS - Express y Nodemon
 
