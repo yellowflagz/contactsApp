@@ -31,7 +31,9 @@
       <div class="phone"><%= users[i].phone %></div>
       <div class="email"><%= users[i].email %></div>
       <form action="/delete" method="POST">
-        <button type="submit" id="<%= users[i]._id %>">Borrar</button>
+        <button type="submit" value="<%= users[i]._id %>" name="id">
+          Borrar
+        </button>
       </form>
     </div>
     <% } %>

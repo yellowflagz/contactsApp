@@ -6,6 +6,7 @@ const path = require("path");
 require("dotenv").config();
 const userRoutes = require("./routes/user");
 const app = express();
+const ObjectId = require("mongodb").ObjectID;
 const port = process.env.PORT || 9000;
 
 // middleware
@@ -27,11 +28,21 @@ MongoClient.connect(process.env.MONGODB_URI)
       usersCollection
         .insertOne(req.body)
         .then((result) => {
+          console.log(req.body);
           res.redirect("/");
         })
         .catch((error) => console.error(error));
     });
-
+    app.post("/delete", (req, res) => {
+      usersCollection
+        .deleteOne({ _id: mongoose.Types.ObjectId(req.body.id) })
+        .then((result) => {
+          console.log(result);
+          console.log(req.body);
+          res.redirect("/");
+        })
+        .catch((error) => console.error(error));
+    });
     // OBTENER TODOS LOS USUARIOS
 
     app.get("/", (req, res) => {
@@ -42,10 +53,6 @@ MongoClient.connect(process.env.MONGODB_URI)
           res.render("index", { users: results });
         })
         .catch(/* ... */);
-    });
-
-    app.delete("/delete", (req, res) => {
-      usersCollection.deleteOne({ _id: req.body._id }).then(res.redirect("/"));
     });
   })
   .catch(console.error);
