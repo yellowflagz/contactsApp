@@ -28,12 +28,12 @@
           type="tel"
           pattern="[0-9]{9}"
           required
-          placeholder="666333222"
+          placeholder="Teléfono"
           name="phone"
         />
-        <input class="form-control mb-2" type="email" placeholder="ortiga@amancio.com" name="email" />
+        <input class="form-control mb-2" type="email" placeholder="mail@dominio.com" name="email" />
 
-        <button class="btn btn-primary" type="submit">Añadir Contacto</button>
+        <button class="btn btn-info" type="submit">Añadir Contacto</button>
       </form>
     </div>
     <% for(var i = 0; i < users.length; i++) {%>
@@ -44,16 +44,17 @@
           <div class="surname mb-2"><%= users[i].surname %></div>
           <div class="phone mb-2"><%= users[i].phone %></div>
           <div class="email mb-2"><%= users[i].email %></div>
-          <form action="/delete" method="POST">
-            <button type="submit" value="<%= users[i]._id %>" name="id">
-              Borrar
-            </button>
-          </form>
           <form action="/edit" method="post">
-            <button type="submit" value="<%= users[i]._id %>" name="id">
+            <button class= "btn btn-info" type="submit" value="<%= users[i]._id %>" name="id">
               Editar
             </button>
           </form>
+          <form action="/delete" method="POST">
+            <button class="btn btn-danger" type="submit" value="<%= users[i]._id %>" name="id">
+              Borrar
+            </button>
+          </form>
+
         </div>
       </div>
     </div>
