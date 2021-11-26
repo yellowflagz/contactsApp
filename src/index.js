@@ -30,7 +30,6 @@ MongoClient.connect(process.env.MONGODB_URI)
       usersCollection
         .insertOne(req.body)
         .then((result) => {
-          console.log(req.body);
           res.redirect("/");
         })
         .catch((error) => console.error(error));
@@ -41,8 +40,6 @@ MongoClient.connect(process.env.MONGODB_URI)
       usersCollection
         .deleteOne({ _id: mongoose.Types.ObjectId(req.body.id) })
         .then((result) => {
-          console.log(result);
-          console.log(req.body);
           res.redirect("/");
         })
         .catch((error) => console.error(error));
@@ -65,7 +62,6 @@ MongoClient.connect(process.env.MONGODB_URI)
       usersCollection
         .findOne({ _id: mongoose.Types.ObjectId(req.body.id) })
         .then((results) => {
-          console.log(results);
           res.render("edit", { users: results });
         })
         .catch((error) => console.error(error));
@@ -88,8 +84,7 @@ MongoClient.connect(process.env.MONGODB_URI)
           { new: true, omitUndefined: true }
         )
         .then((result) => {
-          console.log(result);
-          console.log(req.body);
+          res.redirect("/");
         })
         .catch((error) => console.error(error))
         .catch((error) => console.error(error));

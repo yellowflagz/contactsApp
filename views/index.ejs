@@ -9,42 +9,53 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/public/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <h1 class="display-1 text-center">Agenda de Contactos</h1>
+    <h1 class="display-3 text-center">ContactsApp</h2>
+    <div class="container-fluid">
+      <form action="/users" method="POST">
+        <input class="form-control mb-2" type="text" required placeholder="Nombre" name="name" />
+        <input class="form-control mb-2" type="text" required placeholder="Apellidos" name="surname" />
+        <input 
+          class="form-control mb-2"
+          type="tel"
+          pattern="[0-9]{9}"
+          required
+          placeholder="666333222"
+          name="phone"
+        />
+        <input class="form-control mb-2" type="email" placeholder="ortiga@amancio.com" name="email" />
 
-    <form action="/users" method="POST" class="form">
-      <input type="text" required placeholder="Nombre" name="name" />
-      <input type="text" required placeholder="Apellidos" name="surname" />
-      <input
-        type="tel"
-        pattern="[0-9]{9}"
-        required
-        placeholder="666333222"
-        name="phone"
-      />
-      <input type="email" placeholder="ortiga@amancio.com" name="email" />
-
-      <button type="submit">Añadir Contacto</button>
-    </form>
-
+        <button class="btn btn-primary" type="submit">Añadir Contacto</button>
+      </form>
+    </div>
     <% for(var i = 0; i < users.length; i++) {%>
-    <div class="card" id="">
-      <div class="name"><%= users[i].name %></div>
-      <div class="surname"><%= users[i].surname %></div>
-      <div class="phone"><%= users[i].phone %></div>
-      <div class="email"><%= users[i].email %></div>
-      <form action="/delete" method="POST">
-        <button type="submit" value="<%= users[i]._id %>" name="id">
-          Borrar
-        </button>
-      </form>
-      <form action="/edit" method="post">
-        <button type="submit" value="<%= users[i]._id %>" name="id">
-          Editar
-        </button>
-      </form>
+    <div class="container-fluid">
+      <div class="card mb-2">
+        <div class="card-body text-center">
+          <div class="name mb-2"><%= users[i].name %></div>
+          <div class="surname mb-2"><%= users[i].surname %></div>
+          <div class="phone mb-2"><%= users[i].phone %></div>
+          <div class="email mb-2"><%= users[i].email %></div>
+          <form action="/delete" method="POST">
+            <button type="submit" value="<%= users[i]._id %>" name="id">
+              Borrar
+            </button>
+          </form>
+          <form action="/edit" method="post">
+            <button type="submit" value="<%= users[i]._id %>" name="id">
+              Editar
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
     <% } %>
     <script

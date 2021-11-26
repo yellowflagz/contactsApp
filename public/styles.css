@@ -1,3 +1,13 @@
 body {
-  background-color: rgba(0, 0, 0, 0.253);
+  background-color: #f8f9fa;
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  color: black;
+  font-weight: lighter;
+}
+
+.card {
+  background-color: #e9ecef;
 }
