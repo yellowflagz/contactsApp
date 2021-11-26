@@ -1,5 +1,3 @@
-.card {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
+body {
+  background-color: rgba(0, 0, 0, 0.253);
 }
