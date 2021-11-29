@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 
+// Conexión al cliente de Mongo
+
 MongoClient.connect(process.env.MONGODB_URI)
   .then((client) => {
     const db = client.db("myFirstDatabase");
