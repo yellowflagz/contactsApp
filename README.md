@@ -39,7 +39,7 @@ También necesitamos indicarle en el apartado de Network Access **desde qué dir
 
 Aquí iría vuestra dirección IP pública o la dirección IP del servicio que quiere acceder a la base de datos. Como vamos a estar desarrollando la aplicación, **lo más cómodo es ponerla en "Allow access from anywhere" y posteriormente modificarlo.**
 
-![mongo2](C:\Users\acendan\Desktop\DocumentacionProyecto\mdassets\Untitled 2.png)
+![mongo2](/mdassets/Untitled 2.png)
 
 ### Instalación de NodeJS - Express y Nodemon
 
@@ -195,7 +195,7 @@ app.listen(port, () => console.log("server listening on port", port));
 
 Podemos obtener la key dirigiéndonos a la **dashboard de MongoDB, en driver seleccionamos NodeJS junto con su versión correspondiente.**
 
-![Untitled](C:\Users\acendan\Desktop\DocumentacionProyecto\mdassets\Untitled 3.png)
+![Untitled](/mdassets/Untitled 3.png)
 
 Sin embargo, pegar nuestra key en texto plano directamente en el código, no es lo más práctico.
 
@@ -523,9 +523,9 @@ Connection: close
 
 Pero, **¿se habrá creado realmente el objeto en la base de datos?** Para comprobarlo vamos a dirigirnos a MongoDB Atlas, y en nuestro cluster clicaremos en **"Browse Collections"**
 
-![clustermongo](C:\Users\acendan\Desktop\DocumentacionProyecto\mdassets\untitled4.png)
+![clustermongo](/mdassets/untitled4.png)
 
-Y como podremos comprobar, **efectivamente se ha creado un nuevo registro en la base de datos:**![registromongo](C:\Users\acendan\Desktop\DocumentacionProyecto\mdassets\untitled5.png)
+Y como podremos comprobar, **efectivamente se ha creado un nuevo registro en la base de datos:**![registromongo](/mdassets/untitled5.png)
 
 Ahora que hemos definido nuestra ruta y su función para crear nuevos usuarios (contactos en este caso), **debemos definir los endpoints restantes**, como borrar, actualizar u obtener los contactos.
 
@@ -1069,7 +1069,7 @@ MongoClient.connect(process.env.MONGODB_URI).then((client) => {
 
 Si se ha hecho bien, tendríamos que ver ya la lista de los usuarios que hay en la base de datos al entrar a nuestra página web, tal que así:
 
-![vistainicial](C:\Users\acendan\Desktop\DocumentacionProyecto\mdassets\vistainicial.png)
+![vistainicial](/mdassets/vistainicial.png)
 
 #### Crear un Contacto
 
@@ -1143,7 +1143,7 @@ app.post("/edit", (req, res) => {
 
 Si lo hemos hecho todo bien, tendríamos que ver lo siguiente al presionar el botón de editar en un contacto:
 
-![vistaedit](C:\Users\acendan\Desktop\DocumentacionProyecto\mdassets\vistaedit.png)
+![vistaedit](/mdassets/vistaedit.png)
 
 Sin embargo, por mucho que le demos a modificar, **no va a suceder nada**, ya que este botón **envía una request a un endpoint que todavía no hemos definido.**
 
