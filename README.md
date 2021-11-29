@@ -25,13 +25,13 @@ Nos dirigiremos a [https://www.mongodb.com/es](https://www.mongodb.com/es) y nos
 
 En el apartado de configuración, sencillamente **escogemos el provider que más nos guste y la región más cercana a nosotros.**
 
-Una vez le damos a crear, tardará unos minutos en montarlo todo, mientras tanto podemos ir al apartado de **Security > Database Access y crear un usuario para nuestra base de datos.!
+Una vez le damos a crear, tardará unos minutos en montarlo todo, mientras tanto podemos ir al apartado de **Security > Database Access y crear un usuario para nuestra base de datos.
 
 También necesitamos indicarle en el apartado de Network Access **desde qué direcciones IP vamos a conectarnos para que la base de datos nos permita acceder** a ella.
 
 Aquí iría vuestra dirección IP pública o la dirección IP del servicio que quiere acceder a la base de datos. Como vamos a estar desarrollando la aplicación, **lo más cómodo es ponerla en "Allow access from anywhere" y posteriormente modificarlo.**
 
-![Mongo1](mdassets\Untitled_2.png)
+![Mongo1](mdassets/Untitled_2.png)
 
 ### Instalación de NodeJS - Express y Nodemon
 
@@ -514,9 +514,9 @@ Connection: close
 
 Pero, **¿se habrá creado realmente el objeto en la base de datos?** Para comprobarlo vamos a dirigirnos a MongoDB Atlas, y en nuestro cluster clicaremos en **"Browse Collections"**
 
-![mongo2](mdassets\untitled4.png)
+![mongo2](mdassets/untitled4.png)
 
-Y como podremos comprobar, **efectivamente se ha creado un nuevo registro en la base de datos:**![mongo3](mdassets\untitled5.png)
+Y como podremos comprobar, **efectivamente se ha creado un nuevo registro en la base de datos:**![mongo3](mdassets/untitled5.png)
 
 Ahora que hemos definido nuestra ruta y su función para crear nuevos usuarios (contactos en este caso), **debemos definir los endpoints restantes**, como borrar, actualizar u obtener los contactos.
 
