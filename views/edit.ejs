@@ -20,48 +20,70 @@
     <title>Editar Contacto</title>
   </head>
   <body>
-    <h1 class="display-3 text-center">
+    <h1 class="display-3 text-center pb-2">
       <%= users.name + " " + users.surname %>
     </h1>
     <form class="form" action="/edit?_method=PUT" method="post">
-      <label class="editName" for="name">Nombre</label>
-      <input
-        type="text"
-        placeholder="<%= users.name %>"
-        value="<%= users.name %>"
-        name="name"
-        required
-      />
-      <label class="editSurname" for="surname" class="surname">Apellidos</label>
-      <input
-        type="text"
-        placeholder="<%= users.surname %>"
-        value="<%= users.surname %>"
-        name="surname"
-        required
-      />
-      <label class="editPhone" for="phone">Teléfono</label>
-      <input
-        type="tel"
-        pattern="[0-9]{9}"
-        placeholder="<%= users.phone %>"
-        name="phone"
-        value="<%= users.phone %>"
-        required
-      />
-      <label class="editEmail" for="email">Mail</label>
-      <input
-        type="email"
-        placeholder="<%= users.email %>"
-        value="<%= users.email %>"
-        name="email"
-      />
-      <button type="submit" value="<%= users._id %>" name="id">
+      <div class="container-fluid">
+      <div class="form-row">
+        <div class="col">
+          <input
+            type="text"
+            placeholder="Nombre"
+            value="<%= users.name %>"
+            name="name"
+            required
+            class="form-control mb-2"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            placeholder="Apellidos"
+            value="<%= users.surname %>"
+            name="surname"
+            required
+            class="form-control mb-2"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <input
+            type="tel"
+            pattern="[0-9]{9}"
+            placeholder="Teléfono"
+            name="phone"
+            value="<%= users.phone %>"
+            required
+            class="form-control"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="email"
+            placeholder="e-mail"
+            value="<%= users.email %>"
+            name="email"
+            class="form-control"
+          />
+        </div>
+      </div>
+              
+      <button
+        type="submit"
+        class="btn btn-info btn-block mt-2"
+        value="<%= users._id %>"
+        name="id"
+      >
         Modificar
       </button>
-    </form>
+
     <form action="/" method="get">
-      <button type="submit">Volver</button>
+      <button type="submit" class="btn btn-secondary btn-block mt-2">Volver</button>
+    </form>
+    </form>
+    </div>
     </form>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
