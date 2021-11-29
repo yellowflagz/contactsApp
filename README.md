@@ -39,7 +39,7 @@ También necesitamos indicarle en el apartado de Network Access **desde qué dir
 
 Aquí iría vuestra dirección IP pública o la dirección IP del servicio que quiere acceder a la base de datos. Como vamos a estar desarrollando la aplicación, **lo más cómodo es ponerla en "Allow access from anywhere" y posteriormente modificarlo.**
 
-![mongo2](/mdassets/Untitled 2.png)
+![mongo2](/mdassets/Untitled_2.png)
 
 ### Instalación de NodeJS - Express y Nodemon
 
@@ -195,7 +195,7 @@ app.listen(port, () => console.log("server listening on port", port));
 
 Podemos obtener la key dirigiéndonos a la **dashboard de MongoDB, en driver seleccionamos NodeJS junto con su versión correspondiente.**
 
-![Untitled](/mdassets/Untitled 3.png)
+![Untitled](/mdassets/dashboard.png)
 
 Sin embargo, pegar nuestra key en texto plano directamente en el código, no es lo más práctico.
 
