@@ -327,7 +327,7 @@ Si tuviésemos que trabajar con algún otro tipo de dato, **tendríamos que repe
 
 ## Definición de la API
 
-Ahora **es momento de definir nuestra API. **La API **permite interactuar con el servidor y la base de datos** a cualquier persona que esté en su posesión**. Lo cual nos sirve para **reutilizar todo el proyecto en un futuro\*\*.
+Ahora es momento de definir nuestra API. **La API **permite interactuar con el servidor y la base de datos** a cualquier persona que esté en su posesión**. Lo cual nos sirve para **reutilizar todo el proyecto en un futuro**.
 
 Antes, definimos una ruta raíz en el archivo index.js, sin embargo, **definiremos las rutas en su propio directorio y archivo para distinguir las rutas de la API, de la Web App.** De esta manera nuestro proyecto estará mucho más organizado, y cuando queramos modificar el código nos será infinitamente más fácil hacerlo.
 
@@ -816,7 +816,7 @@ MongoClient.connect(process.env.MONGODB_URI).then((client) => {
 
 #### Views , Template Engines y Middleware
 
-Para tratar toda la información que entra y sale del servidor y de la base de datos, **necesitamos lo que comúnmente se llama "Template Engine"**. Este _middleware_ **genera plantillas dinámicas que nos permiten usar los datos del servidor en tiempo real**, nosotros estaremos utilizando **[ejs](https://ejs.co/). **No nos olvidemos de instalar también methodOverride.
+Para tratar toda la información que entra y sale del servidor y de la base de datos, **necesitamos lo que comúnmente se llama "Template Engine"**. Este _middleware_ **genera plantillas dinámicas que nos permiten usar los datos del servidor en tiempo real**, nosotros estaremos utilizando **[ejs](https://ejs.co/)**. No nos olvidemos de instalar también methodOverride.
 
 Después de instalarlo, **lo requerimos en el apartado de middleware**, indicando también la ruta de nustras views (archivos .ejs que contendrán el código HTML). A demás, **aprovecharemos para agregar el resto de middleware** que habíamos requerido antes (**methodOverride, bodyParser...**). Tiene que quedar tal que así:
 
@@ -833,7 +833,7 @@ app.use(express.json());
 app.use(methodOverride("_method")); // Finalmente usamos methodOverride para usar métodos como put en formularios HTML (por defecto solo admite GET y POST)
 ```
 
-Como os habréis dado cuenta**, hemos definido dos directorios que no hemos creado aún, _public y views_**. Los creamos en la raíz del proyecto.
+Como os habréis dado cuenta, **hemos definido dos directorios que no hemos creado aún, _public y views_**. Los creamos en la raíz del proyecto.
 
 **Dentro de public irán los estilos css y js** que podamos necesitar para confeccionar la web, y **dentro de views, estarán las vistas HTML** (extensión ejs) que renderizará el servidor. Parece complicado, pero en realidad es más sencillo de lo que parece.
 
@@ -1246,6 +1246,6 @@ Si nos fijamos, vemos dos botones, **el de submit**, que **dispara la petición 
 
 ## Página Web Completada
 
-Listo, si todo ha ido como debe**, tenemos la página web totalmente funcional,** con su propia API, base de datos no relacional, servidor y endpoints, que nos permite tener a nuestros contactos organizados de la mejor manera.
+Listo, si todo ha ido como debe, **tenemos la página web totalmente funcional**, con su propia API, base de datos no relacional, servidor y endpoints, que nos permite tener a nuestros contactos organizados de la mejor manera.
 
 Ha sido un largo camino, pero ha valido la pena. Amancio Ortiga está más que contento con la web, y contará con el equipo de Inventing Consulting para sus necesidades tecnológicas de aquí en adelante.
