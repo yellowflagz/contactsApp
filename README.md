@@ -742,7 +742,7 @@ router.delete("/users/:id", (req, res) => {
 });
 ```
 
-Probamos el endpoint, borrando a Amancio Ortiga (ya que no tiene mucho sentido que Amancio aparezca en su propia agenda)
+Probamos el endpoint, borrando a Amancio Ortiga.
 
 ```http
 DELETE http://localhost:9000/api/users/619dfcd3c2f843afc0d4ecb6 HTTP/1.1
