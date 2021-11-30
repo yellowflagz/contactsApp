@@ -1,3 +1,4 @@
+- [Uso del proyecto](#uso-del-proyecto)
 - [Desarrollo y documentación del proyecto](#desarrollo-y-documentación-del-proyecto)
   - [Configuración Inicial del Proyecto](#configuración-inicial-del-proyecto)
     - [Instalación de NodeJS - Express y Nodemon](#instalación-de-nodejs---express-y-nodemon)
@@ -22,6 +23,26 @@
       - [Obtener la página Edit](#obtener-la-página-edit)
       - [Editar un Contacto](#editar-un-contacto)
   - [Página Web Completada](#página-web-completada)
+
+# Uso del proyecto
+
+![vistainicial](/mdassets/vistainicial.png)
+
+Para usar el proyecto, simplemente tienes que crear **[una base de datos en MongoDB](#configuración-inicial-del-proyecto)** y obtener la **[key de conexión](#setup-de-mongodb-y-variables-de-entorno).** Una vez tienes la key, **reemplaza las variables de entorno del archivo index.js** de la raíz del proyecto (MONGODB_URI) por tu clave de conexión.
+
+Instalamos las dependencias
+
+```js
+npm install
+```
+
+Y levantamos el servidor
+
+```js
+npm run start
+```
+
+Ya tenemos nuestra Web App de contactos, accesible desde **localhost:9000**
 
 # Desarrollo y documentación del proyecto
 
