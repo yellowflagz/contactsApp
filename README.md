@@ -1270,5 +1270,3 @@ Si nos fijamos, vemos dos botones, **el de submit**, que **dispara la petición 
 ## Página Web Completada
 
 Listo, si todo ha ido como debe, **tenemos la página web totalmente funcional**, con su propia API, base de datos no relacional, servidor y endpoints, que nos permite tener a nuestros contactos organizados de la mejor manera.
-
-Ha sido un largo camino, pero ha valido la pena. Amancio Ortiga está más que contento con la web, y contará con el equipo de Inventing Consulting para sus necesidades tecnológicas de aquí en adelante.
