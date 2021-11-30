@@ -30,7 +30,9 @@
 
 Para usar el proyecto, simplemente tienes que crear **[una base de datos en MongoDB](#configuración-inicial-del-proyecto)** y obtener la **[key de conexión](#setup-de-mongodb-y-variables-de-entorno).** Una vez tienes la key, **reemplaza las variables de entorno del archivo index.js** de la raíz del proyecto (MONGODB_URI) por tu clave de conexión.
 
-Instalamos las dependencias
+Si no tenemos **[NodeJS](https://nodejs.org/es/)**, lo instalamos.
+
+Instalamos las dependencias, ejecutando el siguiente comando desde una terminal, dentro del directorio del proyecto
 
 ```js
 npm install
